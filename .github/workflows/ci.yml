@@ -1,0 +1,69 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  # Compiles the shared layer on its own. Catches syntax errors and anything
+  # preview/preview.scss forgot to @use.
+  shared:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+
+  # Compiles the consuming sites against THIS branch rather than their pinned
+  # tag. This is the job that matters: renaming or removing a token here fails
+  # loudly now instead of at someone's next deploy.
+  consumers:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: ui
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Check out the app
+        uses: actions/checkout@v4
+        with:
+          repository: omeka/Omeka.net
+          path: app
+
+      - name: Build the app's CSS against this branch
+        working-directory: app
+        run: |
+          npm install
+          npm install --no-save ../ui
+          npm run build:css
+          test -s application/mu/views/scripts/css/main.css
+
+      # Hugo needs Dart Sass, which comes from the site's own sass-embedded
+      # devDependency, so `npm install` before `npm run build` is enough — no
+      # extra setup step.
+      - name: Check out the Hugo site
+        uses: actions/checkout@v4
+        with:
+          repository: omeka/omeka-net-hugo
+          path: info
+
+      - uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.165.0'
+          extended: true
+
+      - name: Build the Hugo site against this branch
+        working-directory: info
+        run: |
+          npm install
+          npm install --no-save ../ui
+          npm run build

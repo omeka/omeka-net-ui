@@ -1,0 +1,64 @@
+{
+  "_comment": "Single source for the links in the shared header and footer. Consumed by the Zend app (application/mu/views/scripts/header.phtml, footer.phtml) and by the Hugo site (layouts/partials/site-header.html, site-footer.html). Links to app pages carry both `route` (resolved by Zend's url() helper) and `path` (used by Hugo, joined onto appBaseURL). Links to the Hugo site carry an absolute `url`.",
+
+  "appBaseURL": "https://www.omeka.net",
+  "infoBaseURL": "https://info.omeka.net",
+
+  "primary": [
+    { "label": "Home", "route": "main-home", "path": "/" },
+    {
+      "label": "Pricing",
+      "route": "main-signup",
+      "routeSignedIn": "main-upgradePlan",
+      "path": "/signup/"
+    },
+    { "label": "Showcase", "url": "https://info.omeka.net/showcase" },
+    { "label": "Help", "url": "https://info.omeka.net/help" },
+    { "label": "News", "url": "https://info.omeka.net/news" }
+  ],
+
+  "account": { "label": "My Account", "route": "main-dashboard", "path": "/dashboard/" },
+
+  "footer": [
+    {
+      "heading": "Product",
+      "links": [
+        {
+          "label": "Pricing",
+          "route": "main-signup",
+          "routeSignedIn": "main-upgradePlan",
+          "path": "/signup/"
+        },
+        { "label": "Showcase", "url": "https://info.omeka.net/showcase" },
+        { "label": "Themes", "url": "https://info.omeka.net/themes" },
+        { "label": "Plugins", "url": "https://info.omeka.net/plugins" }
+      ]
+    },
+    {
+      "heading": "Resources",
+      "links": [
+        { "label": "Help Center", "url": "https://info.omeka.net/help" },
+        { "label": "Documentation", "url": "https://info.omeka.net/documentation" },
+        { "label": "Community", "url": "https://info.omeka.net/community" },
+        { "label": "News", "url": "https://info.omeka.net/news" }
+      ]
+    },
+    {
+      "heading": "About",
+      "links": [
+        { "label": "Our Story", "url": "https://info.omeka.net/about" },
+        { "label": "RRCHNM", "url": "https://rrchnm.org" },
+        { "label": "Contact Us", "url": "https://info.omeka.net/contact" },
+        { "label": "Terms of Service", "url": "https://info.omeka.net/terms-of-service" },
+        { "label": "Privacy Policy", "url": "https://info.omeka.net/signup/privacy-policy" }
+      ]
+    }
+  ],
+
+  "strings": {
+    "brandTagline": "The hosted home for libraries, museums, archives, and scholars. Built on Omeka — an open-source platform for cultural heritage on the web.",
+    "footerBottomNote": "Built on Omeka · Open source · Made with care.",
+    "logoAlt": "Omeka.net",
+    "skipLink": "Skip to content"
+  }
+}

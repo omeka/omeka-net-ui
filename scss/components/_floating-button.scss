@@ -1,0 +1,193 @@
+@use "../abstracts/variables" as vars;
+@use "../abstracts/mixins" as mixins;
+
+.floating-hosting-group {
+  position: fixed;
+  right: vars.$space-5;
+  bottom: vars.$space-5;
+  z-index: vars.$z-modal;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: vars.$space-4;
+  pointer-events: none;
+}
+
+.floating-hosting {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.floating-hosting__pill {
+  display: inline-flex;
+  align-items: center;
+  background-color: vars.$color-cream-100;
+  color: vars.$color-body;
+  font-family: vars.$font-body;
+  font-weight: 500;
+  font-size: 0.8125rem;
+  padding: 7px 47px 7px 17px;
+  border-radius: 10px;
+  box-shadow: vars.$shadow-md;
+  margin-right: -25px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(15px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+
+.floating-hosting:hover .floating-hosting__pill {
+  background-color: vars.$color-cream-200;
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+.floating-hosting__badge {
+  position: relative;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: vars.$color-orange;
+  box-shadow: vars.$shadow-md;
+}
+
+.floating-hosting:hover .floating-hosting__badge {
+  filter: brightness(0.92);
+}
+
+.floating-hosting__icon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease, transform 0.25s ease;
+}
+
+.floating-hosting__icon--layers img {
+  width: 22px;
+  height: 19px;
+}
+
+.floating-hosting__icon--close {
+  opacity: 0;
+  transform: rotate(-45deg) scale(0.5);
+}
+
+.floating-hosting__icon--close span {
+  position: absolute;
+  width: 18px;
+  height: 2px;
+  border-radius: 2px;
+  background-color: vars.$color-white;
+}
+
+.floating-hosting__icon--close span:first-child {
+  transform: rotate(45deg);
+}
+
+.floating-hosting__icon--close span:last-child {
+  transform: rotate(-45deg);
+}
+
+.floating-hosting[aria-expanded="true"] .floating-hosting__icon--layers {
+  opacity: 0;
+  transform: rotate(45deg) scale(0.5);
+}
+
+.floating-hosting[aria-expanded="true"] .floating-hosting__icon--close {
+  opacity: 1;
+  transform: rotate(0) scale(1);
+}
+
+.hosting-panel {
+  width: min(420px, calc(100vw - #{vars.$space-5 * 2}));
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  background-color: vars.$color-cream-300;
+  border: 1px solid vars.$color-primary-100;
+  border-radius: vars.$radius-xl;
+  box-shadow: vars.$shadow-lg;
+  padding: vars.$space-6 vars.$space-5;
+  transform-origin: bottom right;
+  opacity: 0;
+  transform: translateY(20px) scale(0.97);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.3s ease;
+}
+
+.hosting-panel.is-open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.hosting-panel__title {
+  font-family: vars.$font-body;
+  font-weight: 500;
+  font-size: vars.$fs-h5;
+  color: vars.$color-body;
+  text-align: center;
+  margin-bottom: vars.$space-5;
+}
+
+.hosting-panel__cards {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-5;
+}
+
+.hosting-option-card {
+  background-color: vars.$color-white;
+  border: 1px solid vars.$color-primary-100;
+  border-radius: vars.$radius-lg;
+  padding: vars.$space-6 vars.$space-5;
+}
+
+.hosting-option-card__eyebrow {
+  display: block;
+  font-family: vars.$font-body;
+  font-weight: 200;
+  font-size: vars.$fs-tag;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: vars.$color-cream-800;
+}
+
+.hosting-option-card__title {
+  font-family: vars.$font-heading;
+  font-weight: 600;
+  font-size: 30px;
+  color: vars.$color-primary-900;
+  margin-bottom: vars.$space-4;
+}
+
+.hosting-option-card__text {
+  font-family: vars.$font-body;
+  font-weight: 400;
+  font-size: vars.$fs-body;
+  color: vars.$color-primary-700;
+  margin-bottom: vars.$space-5;
+}
+
+.hosting-option-card__cta {
+  font-size: vars.$fs-body;
+  padding: 10px 24px;
+}
+
+.hosting-option-card__cta svg {
+  width: 8px;
+  height: 13px;
+}

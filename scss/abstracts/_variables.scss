@@ -1,0 +1,86 @@
+// Shared design tokens: colors, fonts, spacing, breakpoints.
+
+$color-body: #2a2a2a;
+$color-secondary: #7a2e3a;
+$color-orange: #c9603c;
+
+$color-cream-50: #fefdfd;
+$color-cream-100: #fbfaf8;
+$color-cream-200: #f9f8f5;
+$color-cream-300: #f7f4f1;
+$color-cream-400: #f5f2ee;
+$color-cream-500: #f3efea;
+$color-cream-600: #dddad5;
+$color-cream-700: #adaaa6;
+$color-cream-800: #868381;
+$color-cream-900: #666462;
+
+$color-primary-50: #eef1f1;
+$color-primary-100: #cad5d3;
+$color-primary-200: #b0c0be;
+$color-primary-300: #8ca4a0;
+$color-primary-400: #75928d;
+$color-primary-500: #537771;
+$color-primary-600: #4c6c67;
+$color-primary-700: #3b5450;
+$color-primary-800: #2e413e;
+$color-primary-900: #23322f;
+
+$color-white: #ffffff;
+
+$font-heading: "Lateef", serif;
+$font-body: "DM Sans", sans-serif;
+
+$fs-h1: 64px;
+$fs-h2: 44px;
+$fs-h3: 32px;
+$fs-h4: 26px;
+$fs-h5: 20px;
+$fs-h6: 18px;
+$fs-body-lg: 18px;
+$fs-body: 16px;
+$fs-button: 18px;
+$fs-upper: 14px;
+$fs-tag: 13px;
+$fs-caption: 14px;
+
+$lh-h1: 1.1;
+$lh-h2: 1.15;
+$lh-h3: 1.25;
+$lh-h4: 1.3;
+$lh-body: 1.6;
+
+$space-1: 4px;
+$space-2: 8px;
+$space-3: 12px;
+$space-4: 16px;
+$space-5: 24px;
+$space-6: 32px;
+$space-7: 48px;
+$space-8: 64px;
+$space-9: 90px;
+
+$container-max: 1200px;
+$container-padding: 24px;
+$form-max: 480px;
+$radius-sm: 8px;
+$radius-md: 10px;
+$radius-lg: 14px;
+$radius-xl: 24px;
+
+$shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+$shadow-md: 0 6px 15px rgba(0, 0, 0, 0.15);
+$shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.18);
+
+$bp-sm: 480px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;
+
+$header-alert-height: 40px;
+$header-height: 80px;
+
+$z-header: 800;
+$z-floating: 700;
+$z-modal: 900;
+$z-tabs: 1;

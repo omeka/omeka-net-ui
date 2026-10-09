@@ -1,0 +1,23 @@
+@use "../abstracts/variables" as vars;
+
+#alert-banner {
+  background-color: vars.$color-body;
+  color: vars.$color-white;
+}
+
+#alert-banner .alert-banner__inner {
+  padding: 12px vars.$container-padding;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+#alert-banner a {
+  color: vars.$color-white;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+body.hide-alert #alert-banner {
+  pointer-events: none;
+}

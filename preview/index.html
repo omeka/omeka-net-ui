@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>@omeka/ui — component gallery</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lateef:wght@400;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
+<link rel="stylesheet" href="preview.css">
+</head>
+<body>
+
+<a href="#content" id="skip-link">Skip to content</a>
+
+<!-- Header. Mirrored by header.phtml and site-header.html; keep in sync. -->
+<div id="site-header-group">
+  <aside id="alert-banner">
+    <p class="alert-banner__inner">Stay up-to-date with all of the new Omeka developments for Classic, S, and Omeka.net. Sign up for our newsletter <a href="#">here</a>!</p>
+  </aside>
+
+  <header id="site-header" role="banner">
+    <a class="site-title" href="#" aria-label="Omeka.net home">
+      <img src="../assets/omeka-long-transparent.png" alt="Omeka.net" width="150" height="24">
+    </a>
+
+    <button type="button" class="nav-toggle" aria-controls="site-nav" aria-expanded="false">
+      <span class="nav-toggle__box" aria-hidden="true">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </span>
+      <span class="sr-only">Menu</span>
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="Primary">
+      <ul class="site-nav__menu">
+        <li><a href="#" aria-current="page">Home</a></li>
+        <li><a href="#">Pricing</a></li>
+        <li><a href="#">Showcase</a></li>
+        <li><a href="#">Help</a></li>
+        <li><a href="#">News</a></li>
+      </ul>
+
+      <div class="site-nav__actions">
+        <div id="user-meta">
+          <a href="https://www.omeka.net/dashboard/" class="btn btn--outline-light">My Account</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+</div>
+
+<main class="page-content">
+  <div id="content">
+    <div class="group">
+
+      <div class="post-header">
+        <h1>Component gallery</h1>
+      </div>
+
+      <div class="pv-main">
+
+        <p class="pv-lede">Everything on this page is compiled from <code>scss/</code> in this
+        repository, in the same order the consuming sites load it. Edit a partial, and with
+        <code>npm run dev</code> running, reload to see the change. No PHP, database, or Hugo
+        install required.</p>
+
+        <div class="pv-note">
+          <strong>What belongs here:</strong> design tokens and components that appear on more
+          than one site. Page-level styles stay in the project that owns the page —
+          <code>application/mu/views/scripts/scss/pages/</code> in the app,
+          <code>assets/scss/pages/</code> in the Hugo site.
+        </div>
+
+        <!-- ============================ COLOR ============================ -->
+        <section class="pv-section">
+          <h2>Color</h2>
+          <p>Tokens live in <code>scss/abstracts/_variables.scss</code>.</p>
+
+          <span class="pv-label">Brand</span>
+          <ul class="pv-swatches">
+            <li class="pv-swatch"><span class="pv-swatch__chip" style="background:#2a2a2a"></span><span class="pv-swatch__meta"><span class="pv-swatch__name">body</span><span class="pv-swatch__hex">#2a2a2a</span></span></li>
+            <li class="pv-swatch"><span class="pv-swatch__chip" style="background:#7a2e3a"></span><span class="pv-swatch__meta"><span class="pv-swatch__name">secondary</span><span class="pv-swatch__hex">#7a2e3a</span></span></li>
+            <li class="pv-swatch"><span class="pv-swatch__chip" style="background:#c9603c"></span><span class="pv-swatch__meta"><span class="pv-swatch__name">orange</span><span class="pv-swatch__hex">#c9603c</span></span></li>
+          </ul>
+
+          <span class="pv-label">Primary</span>
+          <ul class="pv-swatches">
+            <li class="pv-swatch"><span class="pv-swatch__chip" style="background:#eef1f1"></span><span class="pv-swatch__meta"><span class="pv-swatch__name">primary-50</span><span class="pv-swatch__hex">#eef1f1</span></span></li>
+            <li class="pv-swatch"><span class="pv-swatch__chip" style="background:#cad5d3"></span><span class="pv-swatch__meta"><span class="pv-swatch__name">primary-100</span><span class="pv-swatch__hex">#cad5d3</span></span></li>
+            <li class="pv-swatch"><span class="pv-swatch__chip" style="background:#b0c0be"></span><span class="pv-swatch__meta"><span class="pv-swatch__name">primary-200</span><span class="pv-swatch__hex">#b0c0be</span></span></li>
+            <li class="pv-swatch"><span class="pv-swatch__chip" style="background:#8ca4a0"></span><span class="pv-swatch__meta"><span class="pv-swatch__name">primary-300</span><span class="pv-swatch__hex">#8ca4a0</span></span></li>
+            <li class="pv-swatch"><span class="pv-swatch__chip" style="background:#75928d"></span><span class="pv-swatch__meta"><span class="pv-swatch__name">primary-400</span><span class="pv-swatch__hex">#75928d</span></span></li>
+            <li class="pv-swatch"><span class="pv-swatch__chip" style="background:#537771"></span><span class="pv-swatch__meta"><span class="pv-swatch__name">primary-500</span><span class="pv-swatch__hex">#537771</span></span></li>
+            <li class="pv-swatch"><span class="pv-swatch__chip" style="background:#4c6c67"></span><span class="pv-swatch__meta"><span class="pv-swatch__name">primary-600</span><span class="pv-swatch__hex">#4c6c67</span></span></li>
+            <li class="pv-swatch"><span class="pv-swatch__chip" style="background:#3b5450"></span><span class="pv-swatch__meta"><span class="pv-swatch__name">primary-700</span><span class="pv-swatch__hex">#3b5450</span></span></li>
+            <li class="pv-swatch"><span class="pv-swatch__chip" style="background:#2e413e"></span><span class="pv-swatch__meta"><span class="pv-swatch__name">primary-800</span><span class="pv-swatch__hex">#2e413e</span></span></li>
+            <li class="pv-swatch"><span class="pv-swatch__chip" style="background:#23322f"></span><span class="pv-swatch__meta"><span class="pv-swatch__name">primary-900</span><span class="pv-swatch__hex">#23322f</span></span></li>
+          </ul>
+
+          <span class="pv-label">Cream</span>
+          <ul class="pv-swatches">
+            <li class="pv-swatch"><span class="pv-swatch__chip" style="background:#fefdfd"></span><span class="pv-swatch__meta"><span class="pv-swatch__name">cream-50</span><span class="pv-swatch__hex">#fefdfd</span></span></li>
+            <li class="pv-swatch"><span class="pv-swatch__chip" style="background:#fbfaf8"></span><span class="pv-swatch__meta"><span class="pv-swatch__name">cream-100</span><span class="pv-swatch__hex">#fbfaf8</span></span></li>
+            <li class="pv-swatch"><span class="pv-swatch__chip" style="background:#f9f8f5"></span><span class="pv-swatch__meta"><span class="pv-swatch__name">cream-200</span><span class="pv-swatch__hex">#f9f8f5</span></span></li>
+            <li class="pv-swatch"><span class="pv-swatch__chip" style="background:#f7f4f1"></span><span class="pv-swatch__meta"><span class="pv-swatch__name">cream-300</span><span class="pv-swatch__hex">#f7f4f1</span></span></li>
+            <li class="pv-swatch"><span class="pv-swatch__chip" style="background:#f5f2ee"></span><span class="pv-swatch__meta"><span class="pv-swatch__name">cream-400</span><span class="pv-swatch__hex">#f5f2ee</span></span></li>
+            <li class="pv-swatch"><span class="pv-swatch__chip" style="background:#f3efea"></span><span class="pv-swatch__meta"><span class="pv-swatch__name">cream-500</span><span class="pv-swatch__hex">#f3efea</span></span></li>
+            <li class="pv-swatch"><span class="pv-swatch__chip" style="background:#dddad5"></span><span class="pv-swatch__meta"><span class="pv-swatch__name">cream-600</span><span class="pv-swatch__hex">#dddad5</span></span></li>
+            <li class="pv-swatch"><span class="pv-swatch__chip" style="background:#adaaa6"></span><span class="pv-swatch__meta"><span class="pv-swatch__name">cream-700</span><span class="pv-swatch__hex">#adaaa6</span></span></li>
+            <li class="pv-swatch"><span class="pv-swatch__chip" style="background:#868381"></span><span class="pv-swatch__meta"><span class="pv-swatch__name">cream-800</span><span class="pv-swatch__hex">#868381</span></span></li>
+            <li class="pv-swatch"><span class="pv-swatch__chip" style="background:#666462"></span><span class="pv-swatch__meta"><span class="pv-swatch__name">cream-900</span><span class="pv-swatch__hex">#666462</span></span></li>
+          </ul>
+        </section>
+
+        <!-- ========================= TYPOGRAPHY ========================= -->
+        <section class="pv-section">
+          <h2>Typography</h2>
+          <p>Headings are Lateef; body copy is DM Sans. Rules live in
+          <code>scss/base/_typography.scss</code>.</p>
+
+          <h1>Heading 1 &mdash; 64px</h1>
+          <h2>Heading 2 &mdash; 44px</h2>
+          <h3>Heading 3 &mdash; 32px</h3>
+          <h4>Heading 4 &mdash; 26px</h4>
+          <h5>Heading 5 &mdash; 20px</h5>
+          <h6>Heading 6 &mdash; 18px</h6>
+
+          <p>Body copy at 16px. Omeka.net is a hosted service for Omeka Classic, used by
+          libraries, museums, archives, and individual scholars to publish collections online.
+          This paragraph includes <a href="#">an inline link</a> to show the hover underline
+          treatment, plus <strong>bold</strong> and <em>italic</em> text.</p>
+        </section>
+
+        <!-- =========================== BUTTONS =========================== -->
+        <section class="pv-section">
+          <h2>Buttons</h2>
+          <p><code>scss/components/_buttons.scss</code></p>
+
+          <span class="pv-label">On light</span>
+          <div class="pv-row">
+            <a href="#" class="btn">.btn</a>
+            <a href="#" class="btn btn--primary">.btn--primary</a>
+            <a href="#" class="btn btn--orange">.btn--orange</a>
+            <a href="#" class="btn btn--outline">.btn--outline</a>
+          </div>
+
+          <span class="pv-label">On dark</span>
+          <div class="pv-row pv-row--dark">
+            <a href="#" class="btn btn--outline-light">.btn--outline-light</a>
+            <a href="#" class="btn btn--orange">.btn--orange</a>
+          </div>
+
+          <span class="pv-label">With trailing icon</span>
+          <div class="pv-row">
+            <a href="#" class="btn btn--orange">
+              Learn More
+              <svg width="8" height="13" viewBox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M1 1L6.5 6.5L1 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </section>
+
+        <!-- ======================== FLASH MESSAGES ======================== -->
+        <section class="pv-section">
+          <h2>Flash messages</h2>
+          <p><code>scss/components/_notices.scss</code> &mdash; unscoped, styling the
+          <code>#flash</code> block emitted by <code>Omeka_View_Helper_Flash</code>.</p>
+
+          <div id="flash">
+            <ul>
+              <li class="success">Your site was created successfully.</li>
+              <li class="error">That email address is already registered.</li>
+              <li>Your plan will renew on the 1st of next month.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- =========================== FORMS ============================ -->
+        <section class="pv-section">
+          <h2>Form fields</h2>
+          <p><code>scss/components/_forms.scss</code> &mdash; scoped to
+          <code>.form-fields</code> on the <code>&lt;form&gt;</code>. Class names inside are
+          Omeka's form decorator output, so the app's Zend markup matches as-is.</p>
+
+          <div class="pv-note">
+            Shown on <code>$color-primary-50</code> because that is where these fields live on
+            both real screens &mdash; the auth pages' <code>.prompt</code> band and signup
+            step&nbsp;2. White controls on white would be a different design.
+          </div>
+
+          <div class="pv-band">
+            <form class="form-fields" onsubmit="return false">
+              <div class="field">
+                <div class="field-meta"><label for="pv-username">Username</label></div>
+                <div class="inputs"><input type="text" id="pv-username" value="mfoster"></div>
+              </div>
+
+              <div class="field">
+                <div class="field-meta"><label for="pv-email">Email</label></div>
+                <div class="inputs">
+                  <input type="email" id="pv-email" placeholder="you@example.org">
+                  <p class="hint">We only use this to reply to you.</p>
+                </div>
+              </div>
+
+              <div class="field">
+                <div class="field-meta"><label for="pv-password">Password</label></div>
+                <div class="inputs">
+                  <input type="password" id="pv-password" value="wrong">
+                  <ul class="error"><li>Password must be at least 6 characters.</li></ul>
+                </div>
+              </div>
+
+              <div class="field">
+                <div class="field-meta"><label for="pv-plan">Plan</label></div>
+                <div class="inputs">
+                  <select id="pv-plan">
+                    <option>Basic</option>
+                    <option>Plus</option>
+                    <option>Silver</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field">
+                <div class="field-meta"><label for="pv-message">Message</label></div>
+                <div class="inputs"><textarea id="pv-message" rows="4"></textarea></div>
+              </div>
+
+              <div class="field">
+                <div class="field-meta"><label for="pv-remember">Remember Me?</label></div>
+                <div class="inputs"><input type="checkbox" id="pv-remember"></div>
+              </div>
+
+              <div class="form-actions">
+                <button type="button" class="btn btn--outline">Cancel</button>
+                <button type="submit" class="btn btn--primary">Sign Up</button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <!-- ========================= PAGE HEADER ========================= -->
+        <section class="pv-section">
+          <h2>Page header</h2>
+          <p><code>scss/components/_post-header.scss</code> &mdash; the full-bleed title band
+          used by the signup flow and the account dashboard. Shown at the top of this page.</p>
+        </section>
+
+        <!-- ====================== HEADER &amp; FOOTER ====================== -->
+        <section class="pv-section">
+          <h2>Header, footer, hosting panel</h2>
+          <p>All three are live on this page: the header and alert banner above, the footer
+          below, and the hosting panel behind the button in the bottom corner. Behavior comes
+          from <code>js/site-header.js</code> &mdash; try the mobile nav toggle at a narrow
+          viewport, the nav hover pill, scrolling to collapse the alert banner, and
+          <kbd>Esc</kbd> to close the hosting panel.</p>
+
+          <div class="pv-note">
+            The <em>markup</em> for the header and footer is duplicated by necessity: Zend
+            <code>.phtml</code> partials and Hugo Go templates can't share templates. The link
+            lists come from <code>data/navigation.json</code> in this repository, so link
+            changes are one edit; structural changes need both templates updated.
+          </div>
+        </section>
+
+      </div><!-- /.pv-main -->
+    </div>
+  </div>
+
+  <!-- Footer. Mirrored by footer.phtml and site-footer.html; keep in sync. -->
+  <footer class="site-footer">
+    <div class="site-footer__main">
+      <div class="site-footer__brand">
+        <img src="../assets/omeka-long-transparent.png" alt="Omeka.net" width="150" height="24">
+        <p>The hosted home for libraries, museums, archives, and scholars. Built on Omeka &mdash; an open-source platform for cultural heritage on the web.</p>
+      </div>
+
+      <div>
+        <p class="site-footer__heading">Product</p>
+        <ul class="site-footer__list">
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">Showcase</a></li>
+          <li><a href="#">Themes</a></li>
+          <li><a href="#">Plugins</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="site-footer__heading">Resources</p>
+        <ul class="site-footer__list">
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Documentation</a></li>
+          <li><a href="#">Community</a></li>
+          <li><a href="#">News</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="site-footer__heading">About</p>
+        <ul class="site-footer__list">
+          <li><a href="#">Our Story</a></li>
+          <li><a href="#">RRCHNM</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <div class="site-footer__bottom-inner">
+        <p id="copyright">&copy; 2026 <a href="http://digitalscholar.org">Digital Scholar</a>. All rights reserved.</p>
+        <p>Built on Omeka &middot; Open source &middot; Made with care.</p>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<div class="floating-hosting-group">
+  <div class="hosting-panel" id="hosting-panel" role="dialog" aria-labelledby="hosting-panel-title">
+    <h2 class="hosting-panel__title" id="hosting-panel-title">We also offer other hosting options!</h2>
+    <div class="hosting-panel__cards">
+      <article class="hosting-option-card">
+        <span class="hosting-option-card__eyebrow">Shared</span>
+        <h3 class="hosting-option-card__title">Omeka S</h3>
+        <p class="hosting-option-card__text">A collaborative, multi-site space for smaller projects and single collections, hosted and maintained for you.</p>
+        <a href="#" class="btn btn--orange hosting-option-card__cta">
+          Learn More
+          <svg width="8" height="13" viewBox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M1 1L6.5 6.5L1 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </article>
+      <article class="hosting-option-card">
+        <span class="hosting-option-card__eyebrow">Dedicated</span>
+        <h3 class="hosting-option-card__title">Omeka S</h3>
+        <p class="hosting-option-card__text">A single-tenant install with dedicated resources for institutions that need more control, storage, or customization.</p>
+        <a href="#" class="btn btn--orange hosting-option-card__cta">
+          Learn More
+          <svg width="8" height="13" viewBox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M1 1L6.5 6.5L1 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </article>
+    </div>
+  </div>
+  <button type="button" class="floating-hosting" id="hosting-panel-toggle" aria-expanded="false" aria-controls="hosting-panel">
+    <span class="floating-hosting__pill">Explore Other Hosting Options</span>
+    <span class="floating-hosting__badge">
+      <span class="floating-hosting__icon floating-hosting__icon--layers">
+        <img src="../assets/hosting-options-icon.svg" alt="" width="29" height="25">
+      </span>
+      <span class="floating-hosting__icon floating-hosting__icon--close" aria-hidden="true">
+        <span></span>
+        <span></span>
+      </span>
+    </span>
+  </button>
+</div>
+
+<script src="../js/site-header.js"></script>
+</body>
+</html>

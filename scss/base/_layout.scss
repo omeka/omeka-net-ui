@@ -1,0 +1,61 @@
+@use "../abstracts/variables" as vars;
+@use "../abstracts/mixins" as mixins;
+
+:root {
+  --alert-height: 44px;
+  --header-height: 72px;
+  --sticky-offset: calc(var(--alert-height) + var(--header-height));
+}
+
+.sr-only {
+  @include mixins.visually-hidden;
+}
+
+#skip-link {
+  position: fixed;
+  top: -100px;
+  left: vars.$space-4;
+  z-index: 1000;
+  background: vars.$color-white;
+  color: vars.$color-body;
+  padding: vars.$space-3 vars.$space-4;
+  border-radius: vars.$radius-sm;
+  transition: top 0.15s ease;
+}
+
+#skip-link:focus {
+  top: vars.$space-4;
+}
+
+body {
+  padding-top: calc(var(--alert-height) + var(--header-height) - 1px);
+  transition: padding-top 0.3s ease;
+}
+
+body.home #content {
+  @include mixins.breakpoint-up(sm) {
+    margin-top: calc(var(--header-height) * -1);
+  }
+}
+
+body.hide-alert {
+  padding-top: var(--header-height);
+  --sticky-offset: var(--header-height);
+}
+
+#maintenance {
+  padding: vars.$space-4;
+  background: #f9e8e7;
+  text-align: center;
+}
+
+.site-footer,
+#content {
+  overflow-x: hidden; // Fallback for browsers without `clip` (Safari < 16).
+  overflow-x: clip;
+}
+
+body.no-transitions,
+body.no-transitions * {
+  transition: none !important;
+}

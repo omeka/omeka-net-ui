@@ -1,0 +1,145 @@
+// Component gallery stylesheet. Imports match the consuming sites' order;
+// add new scss/ partials here too (CI compiles only what this file lists).
+
+@use "../scss/abstracts/variables" as vars;
+@use "../scss/abstracts/mixins" as mixins;
+@use "../scss/base/reset";
+@use "../scss/base/typography";
+@use "../scss/base/layout";
+@use "../scss/components/buttons";
+@use "../scss/components/alert-banner";
+@use "../scss/components/post-header";
+@use "../scss/components/site-header";
+@use "../scss/components/site-footer";
+@use "../scss/components/floating-button";
+@use "../scss/components/forms";
+@use "../scss/components/notices";
+
+// Gallery chrome (`pv-` prefix avoids collisions with shared classes).
+
+.pv-main {
+  @include mixins.container;
+  padding-block: vars.$space-8;
+}
+
+.pv-lede {
+  max-width: 60ch;
+  color: vars.$color-cream-900;
+}
+
+.pv-section {
+  margin-block: vars.$space-8;
+  padding-top: vars.$space-6;
+  border-top: 1px solid vars.$color-cream-600;
+
+  > h2 {
+    margin-top: 0;
+  }
+}
+
+.pv-note {
+  margin-block: vars.$space-4;
+  padding: vars.$space-4 vars.$space-5;
+  border-left: 3px solid vars.$color-primary-400;
+  background: vars.$color-primary-50;
+  font-size: vars.$fs-body;
+  color: vars.$color-primary-900;
+
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.9em;
+  }
+}
+
+// Tint the real form screens sit on.
+.pv-band {
+  margin-block: vars.$space-5;
+  padding: vars.$space-6;
+  border-radius: vars.$radius-md;
+  background: vars.$color-primary-50;
+}
+
+.pv-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: vars.$space-4;
+  align-items: center;
+  margin-block: vars.$space-5;
+}
+
+// Dark field, for checking the light/outline button variants in context.
+.pv-row--dark {
+  padding: vars.$space-5;
+  border-radius: vars.$radius-md;
+  background: vars.$color-primary-800;
+}
+
+.pv-label {
+  @include mixins.eyebrow;
+  display: block;
+  margin-bottom: vars.$space-2;
+}
+
+.pv-swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: vars.$space-3;
+  margin-block: vars.$space-4;
+  list-style: none;
+  padding: 0;
+}
+
+.pv-swatch {
+  border: 1px solid vars.$color-cream-600;
+  border-radius: vars.$radius-sm;
+  overflow: hidden;
+  font-size: vars.$fs-tag;
+
+  &__chip {
+    display: block;
+    height: 56px;
+  }
+
+  &__meta {
+    padding: vars.$space-2 vars.$space-3;
+    background: vars.$color-white;
+  }
+
+  &__name {
+    display: block;
+    font-weight: 600;
+  }
+
+  &__hex {
+    display: block;
+    color: vars.$color-cream-900;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+}
+
+.pv-scale {
+  display: grid;
+  gap: vars.$space-3;
+  margin-block: vars.$space-4;
+  list-style: none;
+  padding: 0;
+
+  li {
+    display: flex;
+    align-items: baseline;
+    gap: vars.$space-4;
+  }
+
+  &__bar {
+    height: 12px;
+    border-radius: 2px;
+    background: vars.$color-primary-300;
+  }
+
+  &__name {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: vars.$fs-tag;
+    color: vars.$color-cream-900;
+    white-space: nowrap;
+  }
+}

@@ -1,0 +1,107 @@
+@use "../abstracts/variables" as vars;
+
+body {
+  font-family: vars.$font-body;
+  font-size: vars.$fs-body;
+  line-height: vars.$lh-body;
+  color: vars.$color-body;
+  background-color: vars.$color-white;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: vars.$font-heading;
+  color: vars.$color-primary-900;
+  font-weight: 600;
+}
+
+h5,
+h6 {
+  font-family: vars.$font-body;
+  color: vars.$color-primary-900;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: vars.$fs-h1;
+  line-height: vars.$lh-h1;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: vars.$fs-h2;
+  line-height: vars.$lh-h2;
+}
+
+h3 {
+  font-size: vars.$fs-h3;
+  line-height: vars.$lh-h3;
+  color: vars.$color-primary-700;
+}
+
+h4 {
+  font-size: vars.$fs-h4;
+  line-height: vars.$lh-h4;
+  font-weight: 700;
+}
+
+h5 {
+  font-size: vars.$fs-h5;
+}
+
+h6 {
+  font-size: vars.$fs-h6;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: vars.$color-secondary;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  text-decoration-color: color-mix(in srgb, currentColor 50%, transparent);
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+
+a:hover {
+  color: color-mix(in srgb, vars.$color-secondary 85%, black);
+  text-decoration-color: currentColor;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid vars.$color-orange;
+  outline-offset: 2px;
+}
+
+.eyebrow {
+  display: block;
+  font-weight: 600;
+  font-size: vars.$fs-upper;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: vars.$color-secondary;
+  margin-bottom: vars.$space-2;
+}
+
+.link-arrow {
+  display: inline-block;
+  color: vars.$color-secondary;
+  font-weight: 600;
+  margin-top: vars.$space-2;
+  text-decoration: none;
+}
+
+.link-arrow:hover {
+  color: color-mix(in srgb, vars.$color-secondary 85%, black);
+  text-decoration: underline;
+  text-decoration-color: currentColor;
+}

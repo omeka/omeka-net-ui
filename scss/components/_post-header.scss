@@ -1,0 +1,21 @@
+// Full-bleed band holding a page's <h1>.
+
+@use "../abstracts/variables" as vars;
+@use "../abstracts/mixins" as mixins;
+
+.post-header {
+  background-color: vars.$color-primary-50;
+
+  // Smaller padding on phones, where the 64px h1 already fills most of the fold.
+  padding: vars.$space-7 vars.$container-padding vars.$space-6;
+  text-align: center;
+
+  @include mixins.breakpoint-up(md) {
+    padding-block: vars.$space-9 vars.$space-7;
+  }
+}
+
+.post-header h1 {
+  margin: 0;
+  color: vars.$color-body;
+}

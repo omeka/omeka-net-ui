@@ -1,0 +1,103 @@
+// Form fields: label / control / hint / error stack. Opt in with
+// `class="form-fields"` on the form; rules hang off `.field` so both Omeka
+// wrapper shapes (`.field-meta` or `.columns.alpha/.omega`) are covered.
+
+@use "../abstracts/variables" as vars;
+@use "../abstracts/mixins" as mixins;
+
+// Tighter than `$radius-sm`; 8px reads as a pill at field height.
+$control-radius: 6px;
+
+.form-fields {
+  // Capped on the field, not the form, so a layout can place content beside the column.
+  .field {
+    display: grid;
+    gap: vars.$space-1;
+    max-width: vars.$form-max;
+    margin-bottom: vars.$space-4;
+  }
+
+  .field label {
+    font-weight: 500;
+  }
+
+  // Zend's "required field" text runs into the label; keep it for screen readers only.
+  .required-label {
+    @include mixins.visually-hidden;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="url"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="search"],
+  select,
+  textarea {
+    width: 100%;
+    padding: vars.$space-3 vars.$space-4;
+    border: 1px solid vars.$color-primary-300;
+    border-radius: $control-radius;
+    background-color: vars.$color-white;
+    color: vars.$color-body;
+  }
+
+  ::placeholder {
+    color: vars.$color-cream-800;
+  }
+
+  textarea {
+    resize: vertical;
+    line-height: vars.$lh-body;
+  }
+
+  // The UA focus ring is nearly invisible on the primary-50 band in Safari.
+  :is(input, select, textarea):focus-visible {
+    @include mixins.focus-ring;
+    border-color: vars.$color-primary-500;
+  }
+
+  // Checkbox rows: the decorator emits the label first, so reorder to [box] [label].
+  .field:has(input[type="checkbox"]) {
+    display: flex;
+    align-items: center;
+    gap: vars.$space-2;
+  }
+
+  .field:has(input[type="checkbox"]) .inputs {
+    order: -1;
+  }
+
+  input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+  }
+
+  .hint {
+    margin: 0;
+    color: vars.$color-cream-900;
+    font-size: vars.$fs-caption;
+  }
+
+  // Validation messages: Zend emits `.errors` by default; some Omeka forms pass `ul.error`.
+  .errors,
+  ul.error {
+    margin: vars.$space-2 0 0;
+    padding: 0;
+    list-style: none;
+    color: vars.$color-secondary;
+    font-size: vars.$fs-caption;
+  }
+
+  .form-actions {
+    display: flex;
+    gap: vars.$space-4;
+    max-width: vars.$form-max;
+    margin-top: vars.$space-5;
+  }
+
+  .form-actions .btn {
+    flex: 1;
+  }
+}

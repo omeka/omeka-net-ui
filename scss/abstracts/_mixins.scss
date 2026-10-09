@@ -1,0 +1,61 @@
+@use "variables" as vars;
+
+@mixin container {
+  width: 100%;
+  max-width: vars.$container-max;
+  margin-inline: auto;
+  padding-inline: vars.$container-padding;
+}
+
+@mixin breakpoint-up($bp) {
+  @if $bp == sm {
+    @media (min-width: vars.$bp-sm) { @content; }
+  } @else if $bp == md {
+    @media (min-width: vars.$bp-md) { @content; }
+  } @else if $bp == lg {
+    @media (min-width: vars.$bp-lg) { @content; }
+  } @else if $bp == xl {
+    @media (min-width: vars.$bp-xl) { @content; }
+  } @else {
+    @media (min-width: $bp) { @content; }
+  }
+}
+
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@mixin focus-ring {
+  outline: 2px solid vars.$color-orange;
+  outline-offset: 2px;
+}
+
+// Underline that fades in on hover; reserved up front so the box doesn't shift.
+@mixin hover-underline {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  text-decoration-color: transparent;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+
+  &:hover {
+    text-decoration-color: currentColor;
+  }
+}
+
+@mixin eyebrow {
+  font-family: vars.$font-body;
+  font-weight: 600;
+  font-size: vars.$fs-upper;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: vars.$color-secondary;
+}

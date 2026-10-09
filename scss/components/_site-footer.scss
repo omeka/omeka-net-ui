@@ -1,0 +1,87 @@
+@use "../abstracts/variables" as vars;
+@use "../abstracts/mixins" as mixins;
+
+.site-footer {
+  background: linear-gradient(250deg, rgba(33, 66, 59, 0.9) 0%, rgba(21, 46, 41, 1) 100%);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.site-footer__main {
+  @include mixins.container;
+  padding-block: vars.$space-8;
+  display: grid;
+  gap: vars.$space-7;
+
+  @include mixins.breakpoint-up(md) {
+    grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr));
+  }
+}
+
+.site-footer__brand img {
+  height: 28px;
+  width: auto;
+  margin-bottom: vars.$space-4;
+}
+
+.site-footer__brand p {
+  max-width: 32ch;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.site-footer__heading {
+  color: vars.$color-white;
+  font-family: vars.$font-body;
+  font-weight: 600;
+  font-size: vars.$fs-tag;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: vars.$space-4;
+}
+
+.site-footer__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-3;
+}
+
+.site-footer__list a {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 15px;
+  font-weight: 400;
+  @include mixins.hover-underline;
+}
+
+.site-footer__list a:hover {
+  color: vars.$color-white;
+}
+
+.site-footer__bottom {
+  background-color: vars.$color-body;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.site-footer__bottom-inner a {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
+  @include mixins.hover-underline;
+}
+
+.site-footer__bottom-inner a:hover {
+  color: vars.$color-white;
+}
+
+.site-footer__bottom-inner {
+  @include mixins.container;
+  padding-block: vars.$space-4;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: vars.$space-3;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+}

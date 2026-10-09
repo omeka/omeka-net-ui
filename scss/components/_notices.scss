@@ -1,0 +1,31 @@
+// Flash messages (`#flash`, from Omeka's flash() helper).
+
+@use "../abstracts/variables" as vars;
+
+#flash ul {
+  display: grid;
+  gap: vars.$space-3;
+  list-style: none;
+  margin: 0 0 vars.$space-5;
+  padding: 0;
+}
+
+// Full border, not a left accent bar: a 3px edge gets clipped by the radius.
+#flash li {
+  padding: vars.$space-4 vars.$space-5;
+  border: 1px solid vars.$color-primary-200;
+  border-radius: vars.$radius-md;
+  background-color: vars.$color-primary-50;
+  color: vars.$color-primary-900;
+  text-align: left;
+}
+
+#flash li.success {
+  border-color: vars.$color-primary-400;
+}
+
+#flash li.error {
+  border-color: color-mix(in srgb, vars.$color-secondary 45%, transparent);
+  background-color: color-mix(in srgb, vars.$color-secondary 8%, vars.$color-white);
+  color: vars.$color-body;
+}
